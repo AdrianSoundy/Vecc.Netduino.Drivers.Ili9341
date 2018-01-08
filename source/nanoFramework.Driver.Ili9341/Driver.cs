@@ -19,15 +19,16 @@ namespace NanoFramework.Driver.Ili9341
 
         public int Width { get; private set; }
         public int Height { get; private set; }
-        public GpioPinValue BacklightOn
+        public bool BacklightOn
         {
-            get { return _backlightOn; }
+            get { return (_backlightOn == GpioPinValue.High) ? true : false; }
             set
             {
                 if (_backlightPort != null)
                 {
-                    _backlightPort.Write(value);
-                    _backlightOn = value;
+                    GpioPinValue state = value ? GpioPinValue.High : GpioPinValue.Low;
+                    _backlightPort.Write(state);
+                    _backlightOn = state;
                 }
             }
         }
