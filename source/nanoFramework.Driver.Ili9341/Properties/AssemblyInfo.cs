@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Vecc.Netduino.Drivers.Ili9341")]
+[assembly: AssemblyTitle("nanoFramwork.Driver.Ili9341")]
 [assembly: AssemblyDescription("ILI9341 LCD Display driver")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Vecc Solutions")]
-[assembly: AssemblyProduct("Vecc.Netduino.Drivers.Ili9341")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("nanoFramwork.Driver.Ili9341")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
