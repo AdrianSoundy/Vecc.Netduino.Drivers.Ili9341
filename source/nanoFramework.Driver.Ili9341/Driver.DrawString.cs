@@ -5,10 +5,10 @@ namespace NanoFramework.Driver.Ili9341
         public void DrawString(int x, int y, string s, int color, Font font)
         {
             var currentX = x;
-// foreach (var c in s) causing emit error in nanoframework
-            for( int l=0; l < s.Length; l++)
+            char[] chars = s.ToCharArray();
+
+            foreach (char c in chars)
             {
-                var c = s[l];
                 var character = font.GetFontData(c);
 
                 if (c == '\n') //line feed
