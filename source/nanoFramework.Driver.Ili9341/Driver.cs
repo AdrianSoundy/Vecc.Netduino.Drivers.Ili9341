@@ -7,8 +7,8 @@ namespace NanoFramework.Driver.Ili9341
 {
     public partial class Driver
     {
-        const byte lcdPortraitConfig = 8|0x40;  //Change for reversed portrait letters issue
-        const byte lcdLandscapeConfig = 44;
+        const byte lcdPortraitConfig =  0xc8;
+        const byte lcdLandscapeConfig = 0x6c; 
 
         private readonly GpioPin _dataCommandPort;
         private readonly GpioPin _resetPort;
@@ -57,9 +57,9 @@ namespace NanoFramework.Driver.Ili9341
             _dataCommandPort = gc.OpenPin(dataCommandPin);
             _dataCommandPort.SetDriveMode(GpioPinDriveMode.Output);
 
-            if (resetPin == 0)  
+            if (resetPin != -1)  
             {
-                GpioPin _resetPort = gc.OpenPin(resetPin);
+                _resetPort = gc.OpenPin(resetPin);
                 _resetPort.SetDriveMode(GpioPinDriveMode.Output);
             }
             else
@@ -103,7 +103,7 @@ namespace NanoFramework.Driver.Ili9341
 
         protected virtual void SendData(params byte[] data)
         {
-            _dataCommandPort.Write(GpioPinValue.Low);
+            _dataCommandPort.Write(GpioPinValue.High);
             Write(data);
         }
 
